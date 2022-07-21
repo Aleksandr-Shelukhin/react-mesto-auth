@@ -1,0 +1,9 @@
+.element__button_type_heart {
+  width: 22px;
+  min-width: 22px;
+  height: 19px;
+
+  background-image: url(../../../../images/heart-icon.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

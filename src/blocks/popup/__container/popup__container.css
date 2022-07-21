@@ -1,0 +1,32 @@
+.popup__container {
+  padding: 37px;
+
+  width: 100%;
+  max-width: 430px;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--color-white);
+
+  -webkit-border-radius: var(--border-radius-large);
+  -moz-border-radius: var(--border-radius-large);
+  -ms-border-radius: var(--border-radius-large);
+  -o-border-radius: var(--border-radius-large);
+  border-radius: var(--border-radius-large);
+
+  -webkit-box-shadow: var(--shadow-large);
+  box-shadow: var(--shadow-large);
+
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 371px) {
+  .popup__container {
+    padding: 25px 25px;
+
+  }
+}

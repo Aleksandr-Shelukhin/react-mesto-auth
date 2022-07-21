@@ -1,0 +1,10 @@
+.elements {
+  padding-top: 50px;
+}
+
+@media screen and (max-width: 540px) {
+  .elements{
+    padding-top: 0;
+  }
+}
+
