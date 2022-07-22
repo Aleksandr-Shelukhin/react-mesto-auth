@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {Route, Switch} from "react-router-dom";
 import {api} from "../utils/Api";
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
 import '../index.css';
@@ -9,7 +10,10 @@ import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
-import AddPlacePopup from "./addPlacePopup";
+import AddPlacePopup from "./AddPlacePopup";
+import ProtectedRoute from "./ProtectedRoute";
+import Register from "./Register";
+import Login from "./Login";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
@@ -20,6 +24,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false)
 
   useEffect(() => {
     api.renderCards()
@@ -129,7 +134,30 @@ function App() {
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
         <Header/>
-        <Main
+        <Switch>
+
+          <ProtectedRoute
+            exact path='/'
+            component={Main}
+            onEditProfile={handleEditProfilePopupOpen}
+            onEditAvatar={handleEditAvatarPopupOpen}
+            onAddPlace={handleAddPlacePopupOpen}
+            onConfirmDelete={handleDeleteConfirmPopupOpen}
+            onCardClick={handleCardClick}
+            cards={cards}
+            onCardLike={handleCardLike}
+            onCardDelete={handleCardDelete}
+            loggedIn={loggedIn}
+          />
+          <Route path='/sing-up'>
+            <Register />
+          </Route>
+
+          <Route path='/sing-in'>
+            <Login />
+          </Route>
+        </Switch>
+        {/*<Main
           onEditProfile={handleEditProfilePopupOpen}
           onEditAvatar={handleEditAvatarPopupOpen}
           onAddPlace={handleAddPlacePopupOpen}
@@ -138,7 +166,7 @@ function App() {
           cards={cards}
           onCardLike={handleCardLike}
           onCardDelete={handleCardDelete}
-        />
+        />*/}
         <Footer/>
 
         {/*Попап редактирования профиля*/}
