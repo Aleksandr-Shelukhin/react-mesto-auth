@@ -1,0 +1,29 @@
+.auth__button {
+    margin-top: 216px;
+    padding: 15px;
+    background-color: var(--color-white);
+
+    border: none;
+    -webkit-border-radius: var(--border-radius-small);
+    -moz-border-radius: var(--border-radius-small);
+    -ms-border-radius: var(--border-radius-small);
+    -o-border-radius: var(--border-radius-small);
+    border-radius: var(--border-radius-small);
+
+    font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-black);
+
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+
+    cursor: pointer;
+}
+
+.auth__button:active, :focus {
+    outline: none;
+}

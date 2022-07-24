@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Route, Switch} from "react-router-dom";
+import {Route, Switch, useHistory} from "react-router-dom";
 import {api} from "../utils/Api";
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
 import '../index.css';
@@ -14,6 +14,7 @@ import AddPlacePopup from "./AddPlacePopup";
 import ProtectedRoute from "./ProtectedRoute";
 import Register from "./Register";
 import Login from "./Login";
+import { register, signin, getContent} from "../utils/auth";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
@@ -25,6 +26,11 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false)
+  const history = useHistory()
+
+  const auth = async (jwt) => {
+
+  }
 
   useEffect(() => {
     api.renderCards()
@@ -149,11 +155,11 @@ function App() {
             onCardDelete={handleCardDelete}
             loggedIn={loggedIn}
           />
-          <Route path='/sing-up'>
+          <Route path='/sign-up'>
             <Register />
           </Route>
 
-          <Route path='/sing-in'>
+          <Route path='/sign-in'>
             <Login />
           </Route>
         </Switch>

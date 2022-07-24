@@ -1,9 +1,40 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {Link, useHistory} from "react-router-dom";
 
-const Register = () => {
+const Register = ({ onRegister }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const history = useHistory();
+
   return (
-    <div>
-      <h1>Привет!</h1>
+    <div className="auth">
+      <p className="auth__title">Регистрация</p>
+      <form className="auth__form">
+        <input
+          className="auth__input"
+          id="username"
+          required
+          placeholder="Email"
+          name="username"
+          type="text"
+          value={email}
+          onChange={({ target }) => setEmail(target.value)}
+        />
+        <input
+          className="auth__input"
+          id="password"
+          required
+          placeholder="Пароль"
+          name="password"
+          type="password"
+          value={password}
+          onChange={({ target }) => setPassword(target.value)}
+        />
+        <button className="auth__button transition-on-hover">Зарегистрироваться</button>
+          <Link to="/sign-in" className="auth__signin-link transition-on-hover">Уже зарегистрированы? Войти</Link>
+
+      </form>
     </div>
   );
 };

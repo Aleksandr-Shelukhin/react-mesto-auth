@@ -1,0 +1,16 @@
+.auth__signin-link {
+    margin: 15px 0  0;
+
+    font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-white);
+    text-align: center;
+
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+
+    text-decoration: none;
+}

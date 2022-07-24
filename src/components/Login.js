@@ -1,16 +1,34 @@
 import React, {useState} from 'react';
-import {Link, useHistory} from "react-router-dom";
-import '../index.css'
+import { useHistory } from 'react-router-dom';
 
-const Login = () => {
-  const [userName, setUserName] = useState('');
+const Login = ({ onLogin }) => {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const history = useHistory();
 
+  const resetForm = () => {
+    setEmail('');
+    setPassword('');
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    onLogin({email, password})
+      .then(
+        () => {
+          history.push('/');
+        })
+      .then(() => resetForm())
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
   return (
-    <div className="auth">
-      <p className="auth__header"></p>
+    <div className="auth" onSubmit={handleSubmit}>
+      <p className="auth__title">Вход</p>
       <form className="auth__form">
         <input
           className="auth__input"
@@ -19,8 +37,8 @@ const Login = () => {
           placeholder="Email"
           name="username"
           type="text"
-          value={userName}
-          onChange={({ target }) => setUserName(target.value)}
+          value={email}
+          onChange={({ target }) => setEmail(target.value)}
         />
         <input
           className="auth__input"
@@ -32,7 +50,7 @@ const Login = () => {
           value={password}
           onChange={({ target }) => setPassword(target.value)}
         />
-        <button className="auth__Button">Войти</button>
+        <button className="auth__button transition-on-hover">Войти</button>
 
       </form>
     </div>
