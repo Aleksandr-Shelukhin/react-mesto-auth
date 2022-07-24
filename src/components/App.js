@@ -74,7 +74,7 @@ function App() {
   }, [loggedIn])
 
   const handleSignUpSubmit = ({ email, password }) => {
-    register(password, email)
+    return register(password, email)
       .then ((res) => {
         setIsRegistered(true);
         setIsInfoTooltipOpen(true);
@@ -85,8 +85,10 @@ function App() {
       });
   };
 
+
+
   const handleSignInSubmit = ({ email, password }) => {
-    signin(password, email)
+    return signin(password, email)
       .then ((data) => {
         if (data) {
           getContent(data.token)
@@ -102,7 +104,6 @@ function App() {
           setIsRegistered(false);
           setIsInfoTooltipOpen(true);
         }
-
       })
       .catch((err) => {
         console.log(err)
@@ -205,7 +206,6 @@ function App() {
       <CurrentUserContext.Provider value={currentUser}>
         <Header
           email={userEmail}
-          loggedIn={loggedIn}
           signOut={handleSignOut}
         />
         <Switch>
@@ -238,16 +238,6 @@ function App() {
             {loggedIn ? <Redirect to='/'/> : <Redirect to='sign-up'/>}
           </Route>
         </Switch>
-        {/*<Main
-          onEditProfile={handleEditProfilePopupOpen}
-          onEditAvatar={handleEditAvatarPopupOpen}
-          onAddPlace={handleAddPlacePopupOpen}
-          onConfirmDelete={handleDeleteConfirmPopupOpen}
-          onCardClick={handleCardClick}
-          cards={cards}
-          onCardLike={handleCardLike}
-          onCardDelete={handleCardDelete}
-        />*/}
         <Footer/>
 
         {/*Попап редактирования профиля*/}
@@ -286,7 +276,7 @@ function App() {
           isOpen={isImagePopupOpen}
         />
         <InfoTooltip
-          isRegistred={isRegistered}
+          isRegistered={isRegistered}
           isOpen={isInfoTooltipOpen}
           onClose={closeAllPopups}
         />

@@ -14,7 +14,10 @@ const Login = ({onLogin} ) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onLogin({email, password})
+    onLogin({
+      email,
+      password
+    })
       .then(
         () => {
           history.push('/');

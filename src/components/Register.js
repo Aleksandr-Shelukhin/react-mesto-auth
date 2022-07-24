@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Link} from "react-router-dom";
+import {Link, Route} from "react-router-dom";
 
 const Register = ({ onRegister }) => {
   const [email, setEmail] = useState('');
@@ -42,7 +42,9 @@ const Register = ({ onRegister }) => {
           type="submit"
         >Зарегистрироваться
         </button>
+        <Route>
           <Link to="sign-in" className="auth__signin-link transition-on-hover">Уже зарегистрированы? Войти</Link>
+        </Route>
       </form>
     </div>
   );
