@@ -21,8 +21,12 @@ const PopupWithForm = ({name, title, textButton, isOpen, onClick, onClose, onClo
           </button>
 
         </form>
-        <button onClick={onClose} type="button" className="popup__close-button transition-on-hover"
-                id="profilePopupCloseButton"></button>
+        <button
+          onClick={onClose}
+          type="button"
+          className="popup__close-button transition-on-hover"
+          id="profilePopupCloseButton">
+        </button>
       </div>
     </div>
   );

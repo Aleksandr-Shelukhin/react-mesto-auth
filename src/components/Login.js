@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 
-const Login = ({ onLogin }) => {
+const Login = ({onLogin} ) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -14,7 +14,6 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     onLogin({email, password})
       .then(
         () => {
@@ -29,14 +28,14 @@ const Login = ({ onLogin }) => {
   return (
     <div className="auth" onSubmit={handleSubmit}>
       <p className="auth__title">Вход</p>
-      <form className="auth__form">
+      <form className="auth__form" >
         <input
           className="auth__input"
           id="username"
           required
           placeholder="Email"
           name="username"
-          type="text"
+          type="email"
           value={email}
           onChange={({ target }) => setEmail(target.value)}
         />
