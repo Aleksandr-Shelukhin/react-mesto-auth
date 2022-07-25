@@ -27,7 +27,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
-  const [loggedIn, setLoggedIn] = useState(localStorage.getItem('token') ? true : false)
+  const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem('token'))
   const [isRegistered, setIsRegistered] = useState(false)
   const [userEmail, setUserEmail] = useState(false)
   const history = useHistory()
@@ -75,7 +75,7 @@ function App() {
 
   const handleSignUpSubmit = ({ email, password }) => {
     return register(password, email)
-      .then ((res) => {
+      .then (() => {
         setIsRegistered(true);
         setIsInfoTooltipOpen(true);
         history.push('/sign-in');
@@ -165,6 +165,7 @@ function App() {
     setIsEditAvatarPopupOpen(false);
     setIsDeleteConfirmPopupOpen(false);
     setIsImagePopupOpen(false);
+    setIsInfoTooltipOpen(false)
     setSelectedCard({});
   }
 

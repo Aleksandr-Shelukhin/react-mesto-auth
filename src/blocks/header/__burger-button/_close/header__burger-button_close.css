@@ -1,0 +1,22 @@
+.header__burger-button_close:before,
+.header__burger-button_close:after {
+    content: '';
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    width: 24px;
+    height: 3px;
+
+    background-color: var(--color-white);
+    box-shadow: none;
+}
+
+.header__burger-button_close:before {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.header__burger-button_close:after {
+    transform: translateY(-50%) rotate(-45deg);
+}

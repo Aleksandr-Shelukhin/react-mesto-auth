@@ -4,7 +4,7 @@ import errorImage from '../images/error-infotooltip.svg';
 
 const InfoTooltip = ({isRegistered, isOpen, onClose}) => {
   return (
-    <div className={`popup popup_type_info ${isOpen || 'popup_opened'}`}>
+    <div className={`popup popup_type_info ${isOpen && 'popup_opened'}`}>
       <div className="popup__container">
         <img
           src={isRegistered ? checkImage : errorImage}
