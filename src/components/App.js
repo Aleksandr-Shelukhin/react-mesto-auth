@@ -82,10 +82,10 @@ function App() {
       })
       .catch((err) => {
         console.log(err)
+        setIsRegistered(false);
+        setIsInfoTooltipOpen(true);
       });
   };
-
-
 
   const handleSignInSubmit = ({ email, password }) => {
     return signin(password, email)
@@ -100,13 +100,12 @@ function App() {
             .catch((err) => {
               console.log(err);
             });
-        } else {
-          setIsRegistered(false);
-          setIsInfoTooltipOpen(true);
         }
       })
       .catch((err) => {
         console.log(err)
+        setIsRegistered(false);
+        setIsInfoTooltipOpen(true);
       });
   };
 

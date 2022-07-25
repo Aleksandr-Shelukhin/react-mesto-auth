@@ -10,11 +10,12 @@ export const register = (password, email) => {
     body: JSON.stringify({ password, email })
   })
     .then((response) => {
-      if (response.status === 200) {
+      if (response.ok) {
         return response.json();
+      } else {
+        return Promise.reject(`Ошибка: ${response.status}`)
       }
     })
-    .catch((err) => console.log(err));
 };
 
 export const signin = (password, email) => {
@@ -26,15 +27,19 @@ export const signin = (password, email) => {
     },
     body: JSON.stringify({ password, email })
   })
-    .then((response => response.json()))
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }else {
+        return Promise.reject(`Ошибка: ${response.status}`)}
+    })
     .then((data) => {
       if (data.token) {
         localStorage.setItem('token', data.token);
         return data;
-      }
-    })
-    .catch((err) => console.log(err));
-};
+      }})
+}
+
 
 export const getContent = (token) => {
   return fetch(`${BASE_URL}/users/me`, {

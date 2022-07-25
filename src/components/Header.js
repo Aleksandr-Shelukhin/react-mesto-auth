@@ -15,7 +15,6 @@ const Header = ({email, signOut}) => {
         <Route exact path='/'>
           <p className="header__user-info">{email}</p>
           <p className="header__link transition-on-hover" onClick={signOut}>Выйти</p>
-          <button className="header__burger-button header__burger-button_close transition-on-hover"></button>
         </Route>
       </div>
     </header>
