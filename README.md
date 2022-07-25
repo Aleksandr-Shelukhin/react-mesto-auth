@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Проект: Mesto Россия. React и авторизация пользователей
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Обзор
+* О проекте
+* Особенности
+* Инструкция
+* Технологии
+___
 
-## Available Scripts
+❔ **О проекте**
 
-In the project directory, you can run:
+Сервис Mesto: интерактивная страница, где можно загружать и удалять свои картинки, оценить картинки загруженные другими пользователя.
+Каждый пользователь может менять свои данные (Имя, увлечения, Аватарку). \
+Все данные о пользователях и загруженных ими картинках хранятся в базе данных на сервере. \
+На всех активных элементах (кнопках, ссылках) есть эффект наведения, а всплывающие окна с формами имеют анимацию с плавным появлением и исчезновением
 
-### `npm start`
+🔍 **Особенности**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Этот проект является рефакторингом на React-е проекта [Mesto](https://github.com/Aleksandr-Shelukhin/mesto.git). \
+На данном этапе реализован следущий функционал:
+* Загрузка с сервера данных с фотографиями, их описанием и количеством лайков
+* Загрузка с сервера данных с именем, профессии и аватара пользователя
+* Отображение на странице карточек и информации о пользователе.
+* Открытие и закрытие попапов редактирования имени и профессии пользователя, добавления новой аватарки и новой карточки
+* Регистрация, авторизация пользователя
+* Всплывающее окно с информацией об успешной регистрации или ошибкой авторизации
+* Реализованы защищенные роуты. Теперь контент и функционал доступен только авторизированным пользователям
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Проект написан на функционланых компонетах
 
-### `npm test`
+___
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+⚙️ **Инструкция по развёртыванию:**
+* Сборщик уже настроен. Достаточно клонировать репозиторий
+```sh
+$ git clone <адрес репозитория>
+```
+* Установить зависимости
+```sh
+$ npm install
+```
+* Собрать проект
+```sh
+$ npm run build
+```
+* Готовый проект будет в папке `build`. Достаточно запустить файл `index.html`
 
-### `npm run build`
+#### 🔧 Технологии
+![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)&nbsp;
+![React](https://img.shields.io/badge/-React-05122A?style=flat&logo=react)&nbsp;
+![HTML](https://img.shields.io/badge/-HTML-05122A?style=flat&logo=HTML5)&nbsp;
+![CSS](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=CSS3&logoColor=1572B6)&nbsp;
+![JSON](https://img.shields.io/badge/-JSON-05122A?style=flat&logo=JSON)&nbsp;
+![BEM](https://img.shields.io/badge/-BEM-05122A?style=flat&logo=BEM)&nbsp;
+![OOP](https://img.shields.io/badge/-ООП-05122A?style=flat&logo=StackShare&logoColor=green)\
+![Webpack](https://img.shields.io/badge/-Webpack-05122A?style=flat&logo=Webpack)&nbsp;
+![Figma](https://img.shields.io/badge/-Figma-05122A?style=flat&logo=Figma)&nbsp;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Автор проекта:**  Александр Шелухин
