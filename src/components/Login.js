@@ -18,14 +18,6 @@ const Login = ({onLogin} ) => {
       email,
       password
     })
-      .then(
-        () => {
-          history.push('/');
-        })
-      .then(() => resetForm())
-      .catch((err) => {
-        console.log(err);
-      })
   }
 
   return (
